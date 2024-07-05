@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Kata {
+public static List<Integer> treeByLevels(Node node){
+    ArrayList<Integer> retList=new ArrayList<>();
+    if(node==null) {
+        return retList;
+        }
+   else {
+Queue<Node> q=new ArrayDeque<>();
+q.add(node);
+while(!q.isEmpty()){
+if(q.peek().left!=null) {
+q.add(q.peek().left);
+}
+if(q.peek().right!=null) {
+q.add(q.peek().right);
+}
+
+retList.add(q.poll().value);
+}
+        }
+        return retList;
+    }
+}
